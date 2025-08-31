@@ -1,7 +1,7 @@
 import random
 import string   
 
-def gerar_senha (comrpimento , usar_letras=True, usar_numeros=True, usar_simbolos=True):
+def gerar_senha (comprimento , usar_letras=True, usar_numeros=True, usar_simbolos=True):
     caracteres= ''
     if usar_letras: 
         caracteres += string.ascii_letters
@@ -13,7 +13,7 @@ def gerar_senha (comrpimento , usar_letras=True, usar_numeros=True, usar_simbolo
     if not caracteres:
         return "Nenhum tipo de caractere Selecionado. Não foi possível gerar a senha"
 
-    senha = ''.join(random.choice(caracteres)for _ in range (comrpimento))
+    senha = ''.join(random.choice(caracteres)for _ in range (comprimento))
     return senha
 
 def main ():
