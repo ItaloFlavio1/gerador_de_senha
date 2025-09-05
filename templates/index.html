@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylev1.css') }}">
+</head>
+<body>
+    <div class="gerador-container">
+        <h1 class="titulo">🔐 Gerador de Senhas</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alerta">
+                    {% for msg in messages %}
+                        <p>{{ msg }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="form-gerador">
+            <div class="resultado-container">
+                <input 
+                    type="text" 
+                    id="senha-resultado" 
+                    value="{{ senha if senha else '' }}" 
+                    placeholder="Sua senha aparecerá aqui" 
+                    readonly
+                >
+                <button type="button" id="btn-copiar" title="Copiar senha">📋</button>
+            </div>
+
+            <div class="opcoes">
+                <div class="comprimento-slider">
+                    <label for="comprimento">Comprimento: </label>
+                    <input type="range" id="comprimento" name="comprimento" min="4" max="40" value="{{ comprimento }}">
+                    <span id="comprimento-valor">{{ comprimento }}</span>
+                </div>
+
+                <div class="opcao-item">
+                    <label for="letras">Incluir letras</label>
+                    <input type="checkbox" id="letras" name="letras" class="checkbox-custom" {% if usar_letras %}checked{% endif %}>
+                </div>
+
+                <div class="opcao-item">
+                    <label for="numeros">Incluir números</label>
+                    <input type="checkbox" id="numeros" name="numeros" class="checkbox-custom" {% if usar_numeros %}checked{% endif %}>
+                </div>
+
+                <div class="opcao-item">
+                    <label for="simbolos">Incluir símbolos</label>
+                    <input type="checkbox" id="simbolos" name="simbolos" class="checkbox-custom" {% if usar_simbolos %}checked{% endif %}>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Gerar Senha</button>
+        </form>
+    </div>
+
+    <footer class="rodape">
+    <p>© Italo e Gustavo 2025. Todos os direitos reservados.</p>
+</footer>
+
+
+    <div id="toast-copia" class="toast">Senha copiada!</div>
+    <script src="{{ url_for('static', filename='scriptv1.js') }}"></script>
+</body>
+</html>

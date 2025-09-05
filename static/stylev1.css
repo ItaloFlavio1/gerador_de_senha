@@ -1,0 +1,119 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --success-color: #28a745;
+    --background-color: #f4f7f9;
+    --surface-color: #ffffff;
+    --surface-dark-color: #e9ecef;
+    --text-color: #333333;
+    --text-light-color: #6c757d;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-family-monospace: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.gerador-container {
+    background-color: var(--surface-color);
+    padding: 2rem 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.resultado-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--surface-dark-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+}
+
+#senha-resultado {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    font-family: var(--font-family-monospace);
+    color: var(--text-light-color);
+}
+
+#senha-resultado:focus {
+    outline: none;
+}
+
+#btn-copiar {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+#btn-copiar:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--success-color);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: bottom 0.5s ease-in-out;
+}
+
+.toast.show {
+    bottom: 20px;
+}
+
+.alerta {
+    background-color: #ff4d4f;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.rodape {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #f1f1f1; /* cor de fundo suave */
+    color: #333;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
